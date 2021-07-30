@@ -1,0 +1,118 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "MetocTool API",
+    "version": "0.1.9",
+    "description": "API for IWXXM data transformation and modification"
+  },
+  "servers": [
+    {
+      "url": "http://0.0.0.0:5001/",
+      "description": "API root location"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Single Data Conversion"
+    }
+  ],
+  "paths": {
+    "/XMLConversion": {
+      "get": {
+        "tags": [
+          "Single Data Conversion"
+        ],
+        "summary": "Retuns IWXXM format data from Metar String",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "stationDesignator",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "stationDesignator"
+          },
+          {
+            "in": "query",
+            "name": "metarString",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "allowReserved": true,
+            "description": "metarString"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A xml file.",
+            "content": {
+              "multipart/form-data": {
+                "schema": {
+                  "properties": {
+                    "XML File": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/XMLModify": {
+      "post": {
+        "tags": [
+          "Single Data Conversion"
+        ],
+        "summary": "Takes IWXXM format data from XML file and returns it with calculated parameters",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "colorState": {
+                    "type": "boolean"
+                  },
+                  "crossWindAlert": {
+                    "type": "boolean"
+                  },
+                  "IWXXM_XML": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "colorState",
+                  "crossWindAlert",
+                  "IWXXM_XML"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "A xml file.",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "properties": {
+                    "XML File": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
