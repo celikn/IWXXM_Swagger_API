@@ -3,7 +3,7 @@
 
 # Swagger-Flask-Web API for Metar to IWXXM XML conversion  
 
-** A python console application and a swagger based web application has been created to provide conversion between METAR string and XML file as well as calculation of ColorState and CrossWindAlert. 
+A python console application and a swagger based web application has been created to provide conversion between METAR string and XML file as well as calculation of ColorState and CrossWindAlert. 
 
 The script created for console application can be used;
 To convert a user given METAR string to IWXXM format XML file.
@@ -18,7 +18,7 @@ GIFTs: The python desktop software created by NOAA to generate IWXXM From TAC (O
 The GIFTs repository does not have the full aerodrome database and it requires generating a new one for each airport that will be queried. GML attributes contain the coordinates for each airport for the generated XML file. This information is acquired from a locally generated aerodrome database. The created functions to generate .tbl to .db from the airport.csv file were included but the elevation information of each airport was assumed to be 0 as the airport data found online does not contain this information. The airport data can be replaced with a more precise one for production use. ** 
 
 
-# Usage
+# Usage for swagger based API 
 
 - app.py is running swagger web application in the localhost. MetocTools.py, requirement.txt, static folder containing swagger.json, station folder containing json files for stations and aerodromes for stations are neccesary for application. 
 
@@ -37,4 +37,23 @@ docker run -p 5001:5001 metoctool
 The application will be running in 0.0.0.0:5001 or 127.0.0.1:5001 depending on swagger.json configuration. Use Firefox to test the running application.
 
 ![Swagger-Flask API for IWXXM](/image11-54.jpg)
+
+# Usage for console application with Python VirtualEnv
+
+Generate virtual environment follow the link for instruction https://docs.python.org/3/tutorial/venv.html
+Once you create a folder and activate your python virtual environment 
+1. Install required packages.  requirements.txt file is provided  and contains the necessary packages for the console application. 
+        
+        pip install -r requirements.txt
+2. Install GIFTs.  GIFTs can be downloaded manually or if  GIT Tools (https://git-scm.com/) exists, git clone command can be used to download the files. Unzip the file and run setup.py file inside the project to install gifts package. 
+        git clone https://github.com/NOAA-MDL/GIFTs.git
+        cd GIFTs 
+        python setup.py install 
+3. Now you can run console application script with the given parameters. –h gives available options that can be used with examples
+        python MetocTools.py –h 
+
+![Console application for IWXXM](/image-help.png)
+      
+
+
 
