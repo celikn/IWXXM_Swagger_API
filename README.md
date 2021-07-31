@@ -28,11 +28,11 @@ The Dockerfile containing the necessary commands can be used to build docker ima
 
 1. Build docker image for metoctools.
 
-docker  build -t metoctool .  
+    docker  build -t metoctool .  
 
 2. Run docker container with port 5001
 
-docker run -p 5001:5001 metoctool
+    docker run -p 5001:5001 metoctool
 
 The application will be running in 0.0.0.0:5001 or 127.0.0.1:5001 depending on swagger.json configuration. Use Firefox to test the running application.
 
@@ -45,7 +45,7 @@ Once you create a folder and activate your python virtual environment
 1. Install required packages.  requirements.txt file is provided  and contains the necessary packages for the console application. 
         
         pip install -r requirements.txt
-        
+
 2. Install GIFTs.  GIFTs can be downloaded manually or if  GIT Tools (https://git-scm.com/) exists, git clone command can be used to download the files. Unzip the file and run setup.py file inside the project to install gifts package. 
         
         git clone https://github.com/NOAA-MDL/GIFTs.git
