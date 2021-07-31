@@ -46,10 +46,15 @@ Once you create a folder and activate your python virtual environment
         
         pip install -r requirements.txt
 2. Install GIFTs.  GIFTs can be downloaded manually or if  GIT Tools (https://git-scm.com/) exists, git clone command can be used to download the files. Unzip the file and run setup.py file inside the project to install gifts package. 
+        
         git clone https://github.com/NOAA-MDL/GIFTs.git
+        
         cd GIFTs 
-        python setup.py install 
+        
+        python setup.py install
+
 3. Now you can run console application script with the given parameters. –h gives available options that can be used with examples
+        
         python MetocTools.py –h 
 
 ![Console application for IWXXM](/image-help.png)
