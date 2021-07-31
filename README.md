@@ -1,7 +1,7 @@
 
 
 
-*  Swagger-Flask-Web API for Metar to IWXXM XML conversion  
+# Swagger-Flask-Web API for Metar to IWXXM XML conversion  
 
 ** A python console application and a swagger based web application has been created to provide conversion between METAR string and XML file as well as calculation of ColorState and CrossWindAlert. 
 
@@ -18,7 +18,7 @@ GIFTs: The python desktop software created by NOAA to generate IWXXM From TAC (O
 The GIFTs repository does not have the full aerodrome database and it requires generating a new one for each airport that will be queried. GML attributes contain the coordinates for each airport for the generated XML file. This information is acquired from a locally generated aerodrome database. The created functions to generate .tbl to .db from the airport.csv file were included but the elevation information of each airport was assumed to be 0 as the airport data found online does not contain this information. The airport data can be replaced with a more precise one for production use. ** 
 
 
-* Usage
+# Usage
 
 - app.py is running swagger web application in the localhost. MetocTools.py, requirement.txt, static folder containing swagger.json, station folder containing json files for stations and aerodromes for stations are neccesary for application. 
 
